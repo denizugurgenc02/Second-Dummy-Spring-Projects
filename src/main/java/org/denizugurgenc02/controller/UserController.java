@@ -1,5 +1,7 @@
 package org.denizugurgenc02.controller;
 
+import org.denizugurgenc02.dto.UserRequestDTO;
+import org.denizugurgenc02.dto.UserResponseDTO;
 import org.denizugurgenc02.entities.User;
 import org.denizugurgenc02.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +17,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(path = "/add")
-    public User addUser(@RequestBody User user) {
+    public UserResponseDTO addUser(@RequestBody UserRequestDTO user) {
         return userService.addUser(user);
     }
 
     @GetMapping(path = "/{id}")
-    public User getUser(@PathVariable(value = "id") Integer id) {
+    public UserResponseDTO getUser(@PathVariable(value = "id") Integer id) {
         return userService.getUser(id);
     }
 
@@ -30,12 +32,12 @@ public class UserController {
     }
 
     @PutMapping(path = "/{id}")
-    public User updateUser(@PathVariable(value = "id") Integer id, @RequestBody User newUser) {
+    public UserResponseDTO updateUser(@PathVariable(value = "id") Integer id, @RequestBody UserRequestDTO newUser) {
         return userService.updateUser(id, newUser);
     }
 
     @GetMapping(path = "/list")
-    public List<User> getUserList() {
+    public List<UserResponseDTO> getUserList() {
         return userService.getUserList();
     }
 }

@@ -28,8 +28,8 @@ public class User {
     private String email;
 
     @Column(name = "firstname", nullable = true)
-    private String firstName;
+    private String firstname;
 
     @Column(name = "lastname", nullable = true)
-    private String lastName;
+    private String lastname;
 }
